@@ -16,3 +16,13 @@ The 5 methods that were chosen for fuzzing are:
 - reportProportion(res_file, output_file) from frequency.py
 - reportProp(res_file) testing with file fuzzing
 - reportDensity(res_file) testing with file fuzzing 
+
+Bugs:
+- Average([1.0, 2.0, nan]) processed data but was expected to raise ValueError
+- Median([1.0, 2.0, nan]) processed data but was expected to raise StatisticsError
+
+Created ci_pipeline.yml in the directory .github/workflows to allow for fuzz.py to automatically be executed from Github Actions.
+
+Step 4b:
+
+Step 4c:
