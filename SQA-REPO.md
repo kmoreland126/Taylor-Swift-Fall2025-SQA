@@ -21,7 +21,8 @@ Bugs:
 - Average([1.0, 2.0, nan]) processed data but was expected to raise ValueError
 - Median([1.0, 2.0, nan]) processed data but was expected to raise StatisticsError
 
-<img width="1106" height="1096" alt="image" src="https://github.com/user-attachments/assets/dd3f2548-0708-4cb8-b963-ec16c8f6da09" />
+<img width="1708" height="1624" alt="image" src="https://github.com/user-attachments/assets/9f973fa0-e502-4232-9314-cb7f35f38665" />
+
 
 Created ci_pipeline.yml in the directory .github/workflows to allow for fuzz.py to automatically be executed from Github Actions.
 
