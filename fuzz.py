@@ -22,7 +22,6 @@ PATH_FAME_ML = os.path.join(PROJECT_ROOT, 'FAME-ML')
 PATH_EMPIRICAL = os.path.join(PROJECT_ROOT, 'empirical')
 
 # 4. Add both target paths to the system path.
-# This allows Python to find 'report.py' directly and 'frequency.py' directly.
 if PATH_FAME_ML not in sys.path:
     sys.path.append(PATH_FAME_ML) 
 if PATH_EMPIRICAL not in sys.path:
@@ -30,8 +29,8 @@ if PATH_EMPIRICAL not in sys.path:
 
 # Attempt to import the required functions now that the paths are set.
 try:
-    # report.py is now on the path
-    from report import Average, Median
+    # --- FIX 1: Import all 4 functions from report.py ---
+    from report import Average, Median, reportProp, reportDensity
     # frequency.py is now on the path
     from frequency import reportProportion
 except ImportError as e:
@@ -44,8 +43,7 @@ except ImportError as e:
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger('FuzzEngine')
 
-# --- Fuzzing Functions ---
-# Note: We are now fuzzing a third method: reportProportion, which relies on file creation.
+# --- Fuzzing Helper Functions ---
 
 def create_fuzz_file(filename, content):
     """Creates a temporary file with malformed content."""
@@ -56,24 +54,20 @@ def create_fuzz_file(filename, content):
 def generate_fuzz_data():
     """Generates various lists designed to break Average/Median."""
     return [
-        # 1. Empty list (Expected ZeroDivisionError for Average, StatisticsError for Median)
+        # 1. Empty list 
         ([], ZeroDivisionError, statistics.StatisticsError),
-        
-        # 2. Non-numeric strings (Expected TypeError for both)
+        # 2. Non-numeric strings 
         ([1, 'a', 3], TypeError, TypeError),
-        
         # 3. Mixed valid/invalid random data
         ([random.randint(1, 10), random.choice(string.ascii_letters), 5], TypeError, TypeError),
-        
-        # 4. Floating point NaN (Expected ValueError/StatisticsError)
+        # 4. Floating point NaN 
         ([1.0, 2.0, np.nan], ValueError, statistics.StatisticsError),
-
-        # 5. Valid Case: Normal data (Expected no error)
+        # 5. Valid Case
         ([1, 2, 3, 4], None, None), 
     ]
 
 def fuzz_test_runner(func, data, expected_error):
-    """Runs a single fuzz test and logs the result."""
+    """Runs a single fuzz test for Average/Median."""
     try:
         result = func(data)
         if expected_error:
@@ -88,12 +82,9 @@ def fuzz_test_runner(func, data, expected_error):
             logger.error(f"BUG FOUND: {func.__name__}({data}) raised UNEXPECTED {type(e).__name__}: {e}")
 
 def fuzz_report_proportion(temp_dir, fuzz_content):
-    """Fuzzes reportProportion, which needs file I/O."""
+    """Fuzzes reportProportion (takes two file paths)."""
     
     logger.info(f"--- Fuzzing reportProportion with Malformed CSV ---")
-    
-    # reportProportion requires an input CSV with specific columns (e.g., 'REPO_FULL_PATH')
-    # and an output path. We will generate both.
     
     FUZZ_IN_PATH = os.path.join(temp_dir, 'fuzz_in.csv')
     FUZZ_OUT_PATH = os.path.join(temp_dir, 'fuzz_out.csv')
@@ -101,7 +92,7 @@ def fuzz_report_proportion(temp_dir, fuzz_content):
     os.makedirs(temp_dir, exist_ok=True)
     create_fuzz_file(FUZZ_IN_PATH, fuzz_content)
 
-    # Test 1: Malformed content (Expected pandas.errors.ParserError or KeyError)
+    # Test 1: Malformed content
     try:
         reportProportion(FUZZ_IN_PATH, FUZZ_OUT_PATH)
         logger.error(f"BUG FOUND: reportProportion processed malformed data without error/crash.")
@@ -122,6 +113,38 @@ def fuzz_report_proportion(temp_dir, fuzz_content):
     except Exception as e:
         logger.error(f"BUG FOUND: reportProportion raised UNEXPECTED {type(e).__name__}: {e}")
 
+# --- FIX 2: New function to fuzz reportProp and reportDensity (one file path) ---
+def fuzz_report_file_methods(func, temp_dir, fuzz_content):
+    """Fuzzes reportProp and reportDensity (takes one file path)."""
+    
+    logger.info(f"--- Fuzzing {func.__name__} with Malformed CSV ---")
+    
+    FUZZ_IN_PATH = os.path.join(temp_dir, f'{func.__name__}_in.csv')
+    
+    os.makedirs(temp_dir, exist_ok=True)
+    create_fuzz_file(FUZZ_IN_PATH, fuzz_content)
+
+    # Test 1: Malformed content
+    try:
+        func(FUZZ_IN_PATH)
+        logger.error(f"BUG FOUND: {func.__name__} processed malformed data without error/crash.")
+    except pd.errors.ParserError:
+        logger.info(f"PASS: {func.__name__} raised expected ParserError.")
+    except KeyError as e:
+        logger.info(f"PASS: {func.__name__} raised expected KeyError (due to missing required column: {e})")
+    except Exception as e:
+        logger.error(f"BUG FOUND: {func.__name__} raised UNEXPECTED {type(e).__name__}: {e}")
+
+    # Test 2: Non-existent file path
+    logger.info(f"--- Fuzzing {func.__name__} with non-existent file path ---")
+    try:
+        func('/nonexistent/path/fuzz.csv')
+        logger.error(f"BUG FOUND: {func.__name__} did not crash on non-existent file.")
+    except FileNotFoundError:
+        logger.info(f"PASS: {func.__name__} raised expected FileNotFoundError.")
+    except Exception as e:
+        logger.error(f"BUG FOUND: {func.__name__} raised UNEXPECTED {type(e).__name__}: {e}")
+
 
 # --- Main Execution ---
 if __name__ == '__main__':
@@ -129,7 +152,7 @@ if __name__ == '__main__':
     fuzz_data_set = generate_fuzz_data()
     
     logger.info("====================================")
-    logger.info("STARTING FUZZ TESTS")
+    logger.info("STARTING FUZZ TESTS (5 METHODS)")
     logger.info("====================================")
 
     # 1. Fuzz Average and Median (2 methods, 5 data cases)
@@ -137,11 +160,21 @@ if __name__ == '__main__':
         fuzz_test_runner(Average, data, avg_expected)
         fuzz_test_runner(Median, data, med_expected)
 
-    # 2. Fuzz reportProportion (1 method, 2 file cases)
+    # 2. Fuzz File-Based Methods (3 methods, 2 file cases each)
     FUZZ_DIR = 'fuzz_temp'
     MALFORMED_CSV = "This is not CSV content!\nIt's just random data.\n1,2,3"
+    
     try:
+        # Fuzz 3. reportProportion
         fuzz_report_proportion(FUZZ_DIR, MALFORMED_CSV)
+        
+        # --- FIX 3: Call the final two fuzzing methods ---
+        # Fuzz 4. reportProp
+        fuzz_report_file_methods(reportProp, FUZZ_DIR, MALFORMED_CSV)
+        
+        # Fuzz 5. reportDensity
+        fuzz_report_file_methods(reportDensity, FUZZ_DIR, MALFORMED_CSV)
+        
     finally:
         # Cleanup: Remove temporary directory
         if os.path.exists(FUZZ_DIR):
