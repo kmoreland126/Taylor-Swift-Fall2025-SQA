@@ -37,5 +37,6 @@ jobs:
           export PYTHONPATH=$PYTHONPATH:./MLForensics-farzana/FAME-ML:./MLForensics-farzana/empirical
 
           # Execute fuzz.py
+          python3 fuzz.py
         # If fuzz.py exits with a non-zero status (i.e., a crash or uncaught exception),
         # this job will fail, and the CI check will turn red.
