@@ -1,0 +1,41 @@
+name: CI Fuzzing and SQA Checks
+
+# 1. Define when this workflow runs (on push to any branch)
+on: [push]
+
+jobs:
+  fuzzing_and_sqa:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 2. Checkout the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 3. Setup Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # 4. Install Dependencies (from project analysis)
+      - name: Install dependencies
+        run: |
+          # Install core data science and Git dependencies
+          python -m pip install --upgrade pip
+          pip install pandas numpy gitpython
+
+      # 5. Configure Python Path and Execute Fuzzing
+      - name: Run Fuzzing Script (fuzz.py)
+        # This step handles the complex nested structure:
+        # fuzz.py is outside MLForensics-farzana, and source code is deeper.
+        run: |
+          # Define the path to the directory containing the modules (report.py, frequency.py)
+          # Assuming the structure is: REPO_ROOT/MLForensics-farzana/{FAME-ML, empirical}
+          
+          # Add the two source code directories to the Python path
+          export PYTHONPATH=$PYTHONPATH:./MLForensics-farzana/FAME-ML:./MLForensics-farzana/empirical
+
+          # Execute fuzz.py
+        # If fuzz.py exits with a non-zero status (i.e., a crash or uncaught exception),
+        # this job will fail, and the CI check will turn red.
