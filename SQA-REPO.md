@@ -35,10 +35,13 @@ The 5 main functions used are:
 - getCSVData()
 - Exception Block in getCSVData()
 
-Security logging is structured. It will ensure that critical areas like timstamp and PID are captured.
-Core detection such as getCSVData and getAllPythonFilesinRepo allow for high-level audit trail.
-The timestamp and caller function is implemented in log_event by allowing for every time and place being recorded.
+Security logging is structured. It will ensure that critical areas like timestamp and PID are captured.
+Core detection, such as getCSVData and getAllPythonFilesinRepo allows for a high-level audit trail.
+The timestamp and caller function are implemented in log_event by allowing for every time and place to be recorded.
+<img width="1108" height="498" alt="image" src="https://github.com/user-attachments/assets/6cc3e5de-ca93-4616-b3bd-834a00209ae5" />
 
-The output is being storaed at forensics.log in the root.
+The output is being stored at forensics.log in the root.
+<img width="3436" height="1922" alt="image" src="https://github.com/user-attachments/assets/852d3ae1-ba75-4fae-aeca-c5ee6cb4e546" />
+
 
 Step 4c:
