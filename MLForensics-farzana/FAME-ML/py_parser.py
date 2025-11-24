@@ -1,10 +1,3 @@
-'''
-Farzana Ahamed Bhuiyan (Lead) 
-Akond Rahman 
-Oct 20, 2020 
-Parser needed to implement FAME-ML 
-'''
-
 import ast 
 import os 
 import constants 
@@ -101,7 +94,7 @@ def commonAttribCallBody(node_):
                 index = 0                
                 for x_ in range(len(funcArgs)):
                 	index = x_ + 1
-					funcArg = funcArgs[x_] 
+				funcArg = funcArgs[x_] 
                 	if( isinstance(funcArg, ast.Name ) )  :
                 		call_arg_list.append( (  funcArg.id, constants.INDEX_KW + str(x_ + 1) )  ) 
                 	elif( isinstance(funcArg, ast.Attribute) ): 
