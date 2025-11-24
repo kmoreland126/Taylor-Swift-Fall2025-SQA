@@ -44,4 +44,4 @@ The output is being stored at forensics.log in the root.
 <img width="3436" height="1922" alt="image" src="https://github.com/user-attachments/assets/852d3ae1-ba75-4fae-aeca-c5ee6cb4e546" />
 
 
-Step 4c:
+Step 4c: Allowed for continuous integration with GitHub Actions by altering the ci_pipeline.yml to run main.py. This ensures that every time there is an update to the repository, both fuzz.py and main.py are run to ensure both fuzzing and forensics are implemented.
