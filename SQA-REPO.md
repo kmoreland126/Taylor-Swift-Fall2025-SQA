@@ -27,5 +27,16 @@ Bugs:
 Created ci_pipeline.yml in the directory .github/workflows to allow for fuzz.py to automatically be executed from Github Actions.
 
 Step 4b:
+Created a main.py file that implemented forensics logging. There is a structure logging used here in the log_event function.
+The 5 main functions used are:
+- log_event()
+- runFameML()
+- getAllPythonFilesinRepo()
+- getCSVData()
+- Exception Block in getCSVData()
+
+Security logging is structured. It will ensure that critical areas like timstamp and PID are captured.
+Core detection such as getCSVData and getAllPythonFilesinRepo allow for high-level audit trail.
+The timestamp and caller function is implemented in log_event by allowing for every time and place being recorded.
 
 Step 4c:
