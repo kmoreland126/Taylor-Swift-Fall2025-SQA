@@ -39,4 +39,6 @@ Security logging is structured. It will ensure that critical areas like timstamp
 Core detection such as getCSVData and getAllPythonFilesinRepo allow for high-level audit trail.
 The timestamp and caller function is implemented in log_event by allowing for every time and place being recorded.
 
+The output is being storaed at forensics.log in the root.
+
 Step 4c:
