@@ -26,7 +26,7 @@ jobs:
           pip install pandas numpy gitpython
 
       # 5. Configure Python Path and Execute Fuzzing
-      - name: Run Fuzzing Script (fuzz.py)
+      - name: Run SQA Checks (Fuzzing and Forensics)
         # This step handles the complex nested structure:
         # fuzz.py is outside MLForensics-farzana, and source code is deeper.
         run: |
@@ -37,9 +37,11 @@ jobs:
           export PYTHONPATH=$PYTHONPATH:./MLForensics-farzana/FAME-ML:./MLForensics-farzana/empirical
 
           # Execute fuzz.py
+          echo "Running Fuzzing Scripts (4.a)..."
           python3 fuzz.py
 
           # Execute main.py
+          echo "Running Forensics Script (4.b/main.py)..."
           python3 main.py
         # If fuzz.py exits with a non-zero status (i.e., a crash or uncaught exception),
         # this job will fail, and the CI check will turn red.
