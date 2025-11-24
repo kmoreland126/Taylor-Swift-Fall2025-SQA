@@ -1,9 +1,3 @@
-"""
-Farzana Ahamed Bhuiyan (Lead) 
-Akond Rahman 
-Oct 20, 2020 
-Main executor (with forensic logging added)
-"""
 import lint_engine
 import constants 
 import time 
