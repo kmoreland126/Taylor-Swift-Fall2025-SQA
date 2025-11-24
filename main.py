@@ -1,16 +1,27 @@
-import lint_engine
-import constants 
+import sys
 import time 
 import datetime 
 import os 
 import pandas as pd
-import py_parser 
 import numpy as np 
 import logging
 import json
 import inspect
 
+REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+MLF_ROOT = os.path.join(REPO_ROOT, 'MLForensics-farzana')
+FAME_ML_PATH = os.path.join(MLF_ROOT, 'FAME-ML')
+EMPIRICAL_PATH = os.path.join(MLF_ROOT, 'empirical')
+
+if FAME_ML_PATH not in sys.path:
+    sys.path.append(FAME_ML_PATH)
+if EMPIRICAL_PATH not in sys.path:
+    sys.path.append(EMPIRICAL_PATH)
+
+import lint_engine
+import constants
+import py_parser
 
 LOG_FILE = "forensics.log"
 

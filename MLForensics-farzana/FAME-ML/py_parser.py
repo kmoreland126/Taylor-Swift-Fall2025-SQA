@@ -93,45 +93,43 @@ def commonAttribCallBody(node_):
                 call_arg_list = []   
                 index = 0                
                 for x_ in range(len(funcArgs)):
-                	index = x_ + 1
-					funcArg = funcArgs[x_] 
-                	if( isinstance(funcArg, ast.Name ) )  :
-                		call_arg_list.append( (  funcArg.id, constants.INDEX_KW + str(x_ + 1) )  ) 
-                	elif( isinstance(funcArg, ast.Attribute) ): 
-                		arg_dic  = funcArg.__dict__
-                		arg_name = arg_dic[constants.ATTRIB_KW] 
-                		call_arg_list.append( (  arg_name, constants.INDEX_KW + str(x_ + 1) )  ) 
-                	elif(isinstance( funcArg, ast.Str ) ):
-                	    call_arg_list.append( ( funcArg.s, constants.INDEX_KW + str( x_ + 1 )  ) )
+                    index = x_ + 1
+                    funcArg = funcArgs[x_] 
+                    if( isinstance(funcArg, ast.Name ) )  :
+                        call_arg_list.append( (  funcArg.id, constants.INDEX_KW + str(x_ + 1) )  ) 
+                    elif( isinstance(funcArg, ast.Attribute) ): 
+                        arg_dic  = funcArg.__dict__
+                        arg_name = arg_dic[constants.ATTRIB_KW] 
+                        call_arg_list.append( (  arg_name, constants.INDEX_KW + str(x_ + 1) )  ) 
+                    elif(isinstance( funcArg, ast.Str ) ):
+                        call_arg_list.append( ( funcArg.s, constants.INDEX_KW + str( x_ + 1 )  ) )
                         
                 for x_ in range(len(funcKeys)):
-                	funcKey = funcKeys[x_] 
-                	if( isinstance(funcKey, ast.keyword ) )  :
-                		call_arg_list.append( ( funcKey.arg, constants.INDEX_KW + str( x_ + 1 + index ) ) ) 
-                    			
-                full_list.append( ( func_parent.id, func_name , funcLineNo, call_arg_list  ) )        
-                
-                
+                    funcKey = funcKeys[x_] 
+                    if( isinstance(funcKey, ast.keyword ) )  :
+                        call_arg_list.append( ( funcKey.arg, constants.INDEX_KW + str( x_ + 1 + index ) ) ) 
+                            
+                full_list.append( ( func_parent.id, func_name , funcLineNo, call_arg_list  ) )                
             if( isinstance(func_parent, ast.Attribute ) ):     
                 call_arg_list = []   
                 index = 0                
                 for x_ in range(len(funcArgs)):
-                	index = x_ + 1
-                	funcArg = funcArgs[x_] 
-                	if( isinstance(funcArg, ast.Name ) )  :
-                	    call_arg_list.append( (  funcArg.id, constants.INDEX_KW + str(x_ + 1) )  ) 
-                	elif( isinstance(funcArg, ast.Attribute) ): 
-                	    arg_dic  = funcArg.__dict__
-                	    arg_name = arg_dic[constants.ATTRIB_KW] 
-                	    call_arg_list.append( (  arg_name, constants.INDEX_KW + str(x_ + 1) )  ) 
-                	elif(isinstance( funcArg, ast.Str ) ):
-                	    call_arg_list.append( ( funcArg.s, constants.INDEX_KW + str( x_ + 1 )  ) )
+                    index = x_ + 1
+                    funcArg = funcArgs[x_] 
+                    if( isinstance(funcArg, ast.Name ) )  :
+                        call_arg_list.append( (  funcArg.id, constants.INDEX_KW + str(x_ + 1) )  ) 
+                    elif( isinstance(funcArg, ast.Attribute) ): 
+                        arg_dic  = funcArg.__dict__
+                        arg_name = arg_dic[constants.ATTRIB_KW] 
+                        call_arg_list.append( (  arg_name, constants.INDEX_KW + str(x_ + 1) )  ) 
+                    elif(isinstance( funcArg, ast.Str ) ):
+                        call_arg_list.append( ( funcArg.s, constants.INDEX_KW + str( x_ + 1 )  ) )
                         
                 for x_ in range(len(funcKeys)):
-                	funcKey = funcKeys[x_] 
-                	if( isinstance(funcKey, ast.keyword ) )  :
-                		call_arg_list.append( ( funcKey.arg, constants.INDEX_KW + str( x_ + 1 + index ) ) ) 
-                		
+                    funcKey = funcKeys[x_] 
+                    if( isinstance(funcKey, ast.keyword ) )  :
+                        call_arg_list.append( ( funcKey.arg, constants.INDEX_KW + str( x_ + 1 + index ) ) ) 
+                        
                 func_dic  = func_parent.__dict__
                 func_parent_name = func_dic[constants.ATTRIB_KW] 
                 full_list.append( ( func_parent_name, func_name , funcLineNo, call_arg_list  ) )    
@@ -140,26 +138,26 @@ def commonAttribCallBody(node_):
                 call_arg_list = []   
                 index = 0                
                 for x_ in range(len(funcArgs)):
-                	index = x_ + 1
-                	funcArg = funcArgs[x_] 
-                	if( isinstance(funcArg, ast.Name ) )  :
-                	    call_arg_list.append( (  funcArg.id, constants.INDEX_KW + str(x_ + 1) )  ) 
-                	elif( isinstance(funcArg, ast.Attribute) ): 
-                	    arg_dic  = funcArg.__dict__
-                	    arg_name = arg_dic[constants.ATTRIB_KW] 
-                	    call_arg_list.append( (  arg_name, constants.INDEX_KW + str(x_ + 1) )  ) 
-                	elif(isinstance( funcArg, ast.Str ) ):
-                		call_arg_list.append( ( funcArg.s, constants.INDEX_KW + str( x_ + 1 )  ) )
+                    index = x_ + 1
+                    funcArg = funcArgs[x_] 
+                    if( isinstance(funcArg, ast.Name ) )  :
+                        call_arg_list.append( (  funcArg.id, constants.INDEX_KW + str(x_ + 1) )  ) 
+                    elif( isinstance(funcArg, ast.Attribute) ): 
+                        arg_dic  = funcArg.__dict__
+                        arg_name = arg_dic[constants.ATTRIB_KW] 
+                        call_arg_list.append( (  arg_name, constants.INDEX_KW + str(x_ + 1) )  ) 
+                    elif(isinstance( funcArg, ast.Str ) ):
+                        call_arg_list.append( ( funcArg.s, constants.INDEX_KW + str( x_ + 1 )  ) )
                         
                 for x_ in range(len(funcKeys)):
-                	funcKey = funcKeys[x_] 
-                	if( isinstance(funcKey, ast.keyword ) )  :
-                		call_arg_list.append( ( funcKey.arg, constants.INDEX_KW + str( x_ + 1 + index ) ) ) 
-                		
+                    funcKey = funcKeys[x_] 
+                    if( isinstance(funcKey, ast.keyword ) )  :
+                        call_arg_list.append( ( funcKey.arg, constants.INDEX_KW + str( x_ + 1 + index ) ) ) 
+                        
                 func_dic  = func_parent.__dict__
                 func_parent_name = func_dic[constants.FUNC_KW] 
                 if( isinstance(func_parent_name, ast.Name ) ):  
-                	full_list.append( ( func_parent_name.id, func_name , funcLineNo, call_arg_list  ) )      
+                    full_list.append( ( func_parent_name.id, func_name , funcLineNo, call_arg_list  ) )      
     return full_list             
 
 
@@ -181,66 +179,66 @@ def getFunctionAssignments(pyTree):
     for stmt_ in pyTree.body:
         for node_ in ast.walk(stmt_):
             if isinstance(node_, ast.Assign):
-            	lhs = ''
-            	assign_dict = node_.__dict__
-            	targets, value  =  assign_dict[ constants.TARGETS_KW ], assign_dict[ constants.VALUE_KW ]
-            	if isinstance(value, ast.Call):
+                lhs = ''
+                assign_dict = node_.__dict__
+                targets, value  =  assign_dict[ constants.TARGETS_KW ], assign_dict[ constants.VALUE_KW ]
+                if isinstance(value, ast.Call):
                     funcDict = value.__dict__ 
                     funcName, funcArgs, funcLineNo, funcKeys =  funcDict[ constants.FUNC_KW ], funcDict[ constants.ARGS_KW ], funcDict[constants.LINE_NO_KW], funcDict[constants.KEY_WORDS_KW]  
                     for target in targets:
-                    	if( isinstance(target, ast.Name) ):
+                        if( isinstance(target, ast.Name) ):
                             lhs = target.id 
                     if( isinstance(funcName, ast.Name ) ): 
-                    	call_arg_list = [] 
-                    	index = 0   
-                    	      
-                    	for x_ in range(len(funcArgs)):
-                    		index = x_ + 1
-                    		funcArg = funcArgs[x_] 
-                    		if( isinstance(funcArg, ast.Name ) ):
-                        		call_arg_list.append( ( funcArg.id, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
-                    		elif(isinstance( funcArg, ast.Str ) ):
-                        		call_arg_list.append( ( funcArg.s, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
-                        		
-                    	for x_ in range(len(funcKeys)):
-                    		funcKey = funcKeys[x_] 
-                    		if( isinstance(funcKey, ast.keyword ) )  :
-                    			call_arg_list.append( (  funcKey.arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1 + index) )  ) 
-        					
-                    	call_list.append( ( lhs, funcName.id, funcLineNo, call_arg_list )  )	
-                    	
+                        call_arg_list = [] 
+                        index = 0   
+                              
+                        for x_ in range(len(funcArgs)):
+                            index = x_ + 1
+                            funcArg = funcArgs[x_] 
+                            if( isinstance(funcArg, ast.Name ) ):
+                                call_arg_list.append( ( funcArg.id, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
+                            elif(isinstance( funcArg, ast.Str ) ):
+                                call_arg_list.append( ( funcArg.s, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
+                                
+                        for x_ in range(len(funcKeys)):
+                            funcKey = funcKeys[x_] 
+                            if( isinstance(funcKey, ast.keyword ) )  :
+                                call_arg_list.append( (  funcKey.arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1 + index) )  ) 
+                    
+                        call_list.append( ( lhs, funcName.id, funcLineNo, call_arg_list )  )
+                    
                     elif( isinstance( funcName, ast.Attribute ) ):
-                    	call_arg_list = []   
-                    	index = 0       
-                    	func_name_dict  = funcName.__dict__
-                    	func_name = func_name_dict[constants.ATTRIB_KW] 
-                    	for x_ in range(len(funcArgs)):
-                    		index = x_ + 1
-                    		funcArg = funcArgs[x_] 
-                    		if( isinstance( funcArg, ast.Call ) ):
-                        		func_arg_dict  = funcArg.__dict__
-                        		func_arg = func_arg_dict[constants.FUNC_KW] 
-                        		call_arg_list.append( ( func_arg,  constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
-                    		elif( isinstance(funcArg, ast.Attribute) ): 
-                    			func_arg_dic  = funcArg.__dict__
-                    			func_arg = func_arg_dic[constants.ATTRIB_KW] 
-                    			call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
-                    		elif(isinstance( funcArg, ast.Str ) ):
-                        		call_arg_list.append( ( funcArg.s, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
-                    		elif isinstance(funcArg, ast.Subscript):
-                    			func_arg =  funcArg.value
-                    			if isinstance(func_arg, ast.Name):
-                    				func_arg = func_arg.id 
-                    			elif isinstance(func_arg, ast.Subscript):
-                    				func_arg = func_arg.value 
-                    				call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
-                    				
-                    	for x_ in range(len(funcKeys)):
-                    		funcKey = funcKeys[x_] 
-                    		if( isinstance(funcKey, ast.keyword ) )  :
-                    			call_arg_list.append( (  funcKey.arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1 + index) )  ) 
-        						
-                    	call_list.append( ( lhs, func_name, funcLineNo, call_arg_list )  )
+                        call_arg_list = []   
+                        index = 0       
+                        func_name_dict  = funcName.__dict__
+                        func_name = func_name_dict[constants.ATTRIB_KW] 
+                        for x_ in range(len(funcArgs)):
+                            index = x_ + 1
+                            funcArg = funcArgs[x_] 
+                            if( isinstance( funcArg, ast.Call ) ):
+                                func_arg_dict  = funcArg.__dict__
+                                func_arg = func_arg_dict[constants.FUNC_KW] 
+                                call_arg_list.append( ( func_arg,  constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
+                            elif( isinstance(funcArg, ast.Attribute) ): 
+                                func_arg_dic  = funcArg.__dict__
+                                func_arg = func_arg_dic[constants.ATTRIB_KW] 
+                                call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
+                            elif(isinstance( funcArg, ast.Str ) ):
+                                call_arg_list.append( ( funcArg.s, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
+                            elif isinstance(funcArg, ast.Subscript):
+                                func_arg =  funcArg.value
+                                if isinstance(func_arg, ast.Name):
+                                    func_arg = func_arg.id 
+                                elif isinstance(func_arg, ast.Subscript):
+                                    func_arg = func_arg.value 
+                                    call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
+                                    
+                        for x_ in range(len(funcKeys)):
+                            funcKey = funcKeys[x_] 
+                            if( isinstance(funcKey, ast.keyword ) )  :
+                                call_arg_list.append( (  funcKey.arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1 + index) )  ) 
+                            
+                        call_list.append( ( lhs, func_name, funcLineNo, call_arg_list )  )
 
     return call_list 
     
@@ -250,34 +248,34 @@ def getFunctionDefinitions(pyTree):
     func_var_list = []
     for stmt_ in pyTree.body:
         for node_ in ast.walk(stmt_):
-        	if isinstance(node_, ast.Call):
-        		funcDict = node_.__dict__ 
-        		func_, funcArgs, funcLineNo, funcKeys =  funcDict[ constants.FUNC_KW ], funcDict[constants.ARGS_KW], funcDict[constants.LINE_NO_KW], funcDict[constants.KEY_WORDS_KW] 
-        		if( isinstance(func_, ast.Name ) ):  
-        			func_name = func_.id 
-        			call_arg_list = []
-        			index = 0                
-        			for x_ in range(len(funcArgs)):
-        				index = x_ + 1
-        				funcArg = funcArgs[x_] 
-        				if( isinstance(funcArg, ast.Name ) )  :
-        					call_arg_list.append( (  funcArg.id, constants.INDEX_KW + str(x_ + 1) )  ) 
-        				elif( isinstance(funcArg, ast.Attribute) ): 
-        					arg_dic  = funcArg.__dict__
-        					arg_name = arg_dic[constants.ATTRIB_KW] 
-        					call_arg_list.append( (  arg_name, constants.INDEX_KW + str(x_ + 1) )  ) 
-        				elif( isinstance( funcArg, ast.Call ) ):
-        					func_arg_dict  = funcArg.__dict__
-        					func_arg = func_arg_dict[constants.FUNC_KW] 
-        					call_arg_list.append( ( func_arg, constants.INDEX_KW + str( x_ + 1 )  ) )
-        				elif( isinstance( funcArg, ast.Str ) ):
-        					call_arg_list.append( ( funcArg.s, constants.INDEX_KW + str( x_ + 1 )  ) )
-        					
-        			for x_ in range(len(funcKeys)):
-        				funcKey = funcKeys[x_] 
-        				if( isinstance(funcKey, ast.keyword ) )  :
-        					call_arg_list.append( (  funcKey.arg, constants.INDEX_KW + str(x_ + index + 1) )  ) 
-        			func_list.append( ( func_name , funcLineNo, call_arg_list  ) )        
+            if isinstance(node_, ast.Call):
+                funcDict = node_.__dict__ 
+                func_, funcArgs, funcLineNo, funcKeys =  funcDict[ constants.FUNC_KW ], funcDict[constants.ARGS_KW], funcDict[constants.LINE_NO_KW], funcDict[constants.KEY_WORDS_KW] 
+                if( isinstance(func_, ast.Name ) ):  
+                    func_name = func_.id 
+                    call_arg_list = []
+                    index = 0                
+                    for x_ in range(len(funcArgs)):
+                        index = x_ + 1
+                        funcArg = funcArgs[x_] 
+                        if( isinstance(funcArg, ast.Name ) )  :
+                            call_arg_list.append( (  funcArg.id, constants.INDEX_KW + str(x_ + 1) )  ) 
+                        elif( isinstance(funcArg, ast.Attribute) ): 
+                            arg_dic  = funcArg.__dict__
+                            arg_name = arg_dic[constants.ATTRIB_KW] 
+                            call_arg_list.append( (  arg_name, constants.INDEX_KW + str(x_ + 1) )  ) 
+                        elif( isinstance( funcArg, ast.Call ) ):
+                            func_arg_dict  = funcArg.__dict__
+                            func_arg = func_arg_dict[constants.FUNC_KW] 
+                            call_arg_list.append( ( func_arg, constants.INDEX_KW + str( x_ + 1 )  ) )
+                        elif( isinstance( funcArg, ast.Str ) ):
+                            call_arg_list.append( ( funcArg.s, constants.INDEX_KW + str( x_ + 1 )  ) )
+                            
+                    for x_ in range(len(funcKeys)):
+                        funcKey = funcKeys[x_] 
+                        if( isinstance(funcKey, ast.keyword ) )  :
+                            call_arg_list.append( (  funcKey.arg, constants.INDEX_KW + str(x_ + index + 1) )  ) 
+                    func_list.append( ( func_name , funcLineNo, call_arg_list  ) )        
         			         
     return func_list
 
@@ -288,55 +286,55 @@ def getFunctionAssignmentsWithMultipleLHS(pyTree):
     for stmt_ in pyTree.body:
         for node_ in ast.walk(stmt_):
             if isinstance(node_, ast.Assign):
-            	lhs = []
-            	assign_dict = node_.__dict__
-            	targets, value  =  assign_dict[  constants.TARGETS_KW ], assign_dict[  constants.VALUE_KW ]
-            	if isinstance(value, ast.Call):
+                lhs = []
+                assign_dict = node_.__dict__
+                targets, value  =  assign_dict[  constants.TARGETS_KW ], assign_dict[  constants.VALUE_KW ]
+                if isinstance(value, ast.Call):
                     funcDict = value.__dict__ 
                     funcName, funcArgs, funcLineNo =  funcDict[ constants.FUNC_KW ], funcDict[ constants.ARGS_KW ], funcDict[constants.LINE_NO_KW] 
                     for target in targets:
-                    	if( isinstance(target, ast.Name) ):
+                        if( isinstance(target, ast.Name) ):
                             lhs.append(target.id) 
-                    	elif( isinstance(target, ast.Tuple) ):
-                    		for item in target.elts:
-                    			if isinstance(item, ast.Name):
-                    				lhs.append(item.id)
+                        elif( isinstance(target, ast.Tuple) ):
+                            for item in target.elts:
+                                if isinstance(item, ast.Name):
+                                    lhs.append(item.id)
                     if( isinstance(funcName, ast.Name ) ): 
-                    	call_arg_list = []       
-                    	for x_ in range(len(funcArgs)):
-                    		funcArg = funcArgs[x_] 
-                    		if( isinstance(funcArg, ast.Name ) ):
-                    			call_arg_list.append( ( funcArg.id, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )             
-                    		elif( isinstance( funcArg, ast.Str ) ):
-                    			call_arg_list.append( ( funcArg.s, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
-                    		elif( isinstance( funcArg, ast.Call ) ):
-                    			func_arg_dict  = funcArg.__dict__
-                    			func_arg = func_arg_dict[constants.FUNC_KW] 
-                    			call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
-                    		elif( isinstance( funcArg, ast.Attribute ) ): 
-                    			func_arg_dic  = funcArg.__dict__
-                    			func_arg = func_arg_dic[constants.ATTRIB_KW] 
-                    			call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) ) 
-                    	call_list.append( ( lhs, funcName.id, funcLineNo, call_arg_list )  )	
+                        call_arg_list = []       
+                        for x_ in range(len(funcArgs)):
+                            funcArg = funcArgs[x_] 
+                            if( isinstance(funcArg, ast.Name ) ):
+                                call_arg_list.append( ( funcArg.id, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )             
+                            elif( isinstance( funcArg, ast.Str ) ):
+                                call_arg_list.append( ( funcArg.s, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
+                            elif( isinstance( funcArg, ast.Call ) ):
+                                func_arg_dict  = funcArg.__dict__
+                                func_arg = func_arg_dict[constants.FUNC_KW] 
+                                call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
+                            elif( isinstance( funcArg, ast.Attribute ) ): 
+                                func_arg_dic  = funcArg.__dict__
+                                func_arg = func_arg_dic[constants.ATTRIB_KW] 
+                                call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) ) 
+                        call_list.append( ( lhs, funcName.id, funcLineNo, call_arg_list )  )	
                     elif( isinstance( funcName, ast.Attribute ) ):
-                    	call_arg_list = []       
-                    	func_name_dict  = funcName.__dict__
-                    	func_name = func_name_dict[constants.ATTRIB_KW] 
-                    	for x_ in range(len(funcArgs)):
-                    		funcArg = funcArgs[x_] 
-                    		if( isinstance(funcArg, ast.Name ) ):
-                        		call_arg_list.append( ( funcArg.id, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
-                    		elif(isinstance( funcArg, ast.Str ) ):
-                        		call_arg_list.append( ( funcArg.s, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
-                    		elif( isinstance( funcArg, ast.Call ) ):
-                        		func_arg_dict  = funcArg.__dict__
-                        		func_arg = func_arg_dict[constants.FUNC_KW] 
-                        		call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
-                    		elif( isinstance(funcArg, ast.Attribute) ): 
-                    			func_arg_dic  = funcArg.__dict__
-                    			func_arg = func_arg_dic[constants.ATTRIB_KW] 
-                    			call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) )   ) 
-                    	call_list.append( ( lhs, func_name, funcLineNo, call_arg_list )  )
+                        call_arg_list = []       
+                        func_name_dict  = funcName.__dict__
+                        func_name = func_name_dict[constants.ATTRIB_KW] 
+                        for x_ in range(len(funcArgs)):
+                            funcArg = funcArgs[x_] 
+                            if( isinstance(funcArg, ast.Name ) ):
+                                call_arg_list.append( ( funcArg.id, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
+                            elif(isinstance( funcArg, ast.Str ) ):
+                                call_arg_list.append( ( funcArg.s, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
+                            elif( isinstance( funcArg, ast.Call ) ):
+                                func_arg_dict  = funcArg.__dict__
+                                func_arg = func_arg_dict[constants.FUNC_KW] 
+                                call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) ) )
+                            elif( isinstance(funcArg, ast.Attribute) ): 
+                                func_arg_dic  = funcArg.__dict__
+                                func_arg = func_arg_dic[constants.ATTRIB_KW] 
+                                call_arg_list.append( ( func_arg, constants.FUNC_CALL_ARG_STR + str(x_ + 1) )   ) 
+                        call_list.append( ( lhs, func_name, funcLineNo, call_arg_list )  )
 
     return call_list 
     
@@ -346,31 +344,31 @@ def getModelFeature(pyTree):
     for stmt_ in pyTree.body:
         for node_ in ast.walk(stmt_):
             if isinstance(node_, ast.Assign):
-            	lhs = ''
-            	assign_dict = node_.__dict__
-            	targets, value  =  assign_dict[  constants.TARGETS_KW ], assign_dict[  constants.VALUE_KW ]
-            	if isinstance(value, ast.Attribute):
+                lhs = ''
+                assign_dict = node_.__dict__
+                targets, value  =  assign_dict[  constants.TARGETS_KW ], assign_dict[  constants.VALUE_KW ]
+                if isinstance(value, ast.Attribute):
                     funcDict = value.__dict__ 
                     className, featureName, funcLineNo =  funcDict[ constants.VALUE_KW ], funcDict[ constants.ATTRIB_KW ], funcDict[ constants.LINE_NO_KW ] 
                     for target in targets:
-                    	if( isinstance(target, ast.Name) ):
+                        if( isinstance(target, ast.Name) ):
                             lhs = target.id 
                     if( isinstance(className, ast.Name ) ): 
-                    	feature_list.append( ( lhs, className.id, featureName, funcLineNo)  )	
-            	if isinstance(value, ast.Subscript):
-                	value =  value.value
-                	if isinstance(value, ast.Attribute):
-                		funcDict = value.__dict__ 
-                		className, featureName, funcLineNo =  funcDict[ constants.VALUE_KW ], funcDict[ constants.ATTRIB_KW ], funcDict[constants.LINE_NO_KW] 
-                		for target in targets:
-                			if( isinstance(target, ast.Name) ):
-                				lhs = target.id 
-                		if( isinstance(className, ast.Name ) ): 
-                			feature_list.append( ( lhs, className.id, featureName, funcLineNo)  )
-                		elif( isinstance(className, ast.Attribute ) ): 
-                			class_dic  = className.__dict__
-                			class_name = class_dic[constants.ATTRIB_KW] 
-                			feature_list.append( ( lhs, class_name, featureName, funcLineNo)  )	
+                        feature_list.append( ( lhs, className.id, featureName, funcLineNo)  )
+                if isinstance(value, ast.Subscript):
+                    value =  value.value
+                    if isinstance(value, ast.Attribute):
+                        funcDict = value.__dict__ 
+                        className, featureName, funcLineNo =  funcDict[ constants.VALUE_KW ], funcDict[ constants.ATTRIB_KW ], funcDict[constants.LINE_NO_KW] 
+                        for target in targets:
+                            if( isinstance(target, ast.Name) ):
+                                lhs = target.id 
+                        if( isinstance(className, ast.Name ) ): 
+                            feature_list.append( ( lhs, className.id, featureName, funcLineNo)  )
+                        elif( isinstance(className, ast.Attribute ) ): 
+                            class_dic  = className.__dict__
+                            class_name = class_dic[constants.ATTRIB_KW] 
+                            feature_list.append( ( lhs, class_name, featureName, funcLineNo)  )	
 
     return feature_list 
     
@@ -380,28 +378,28 @@ def getTupAssiDetails(pyTree):
     for stmt_ in pyTree.body:
         for node_ in ast.walk(stmt_):
             if isinstance(node_, ast.Assign):
-            	lhs = ''
-            	assign_dict = node_.__dict__
-            	targets, value  =  assign_dict[ constants.TARGETS_KW ], assign_dict[  constants.VALUE_KW ]
-            	if isinstance(value, ast.ListComp):
+                lhs = ''
+                assign_dict = node_.__dict__
+                targets, value  =  assign_dict[ constants.TARGETS_KW ], assign_dict[  constants.VALUE_KW ]
+                if isinstance(value, ast.ListComp):
                     varDict = value.__dict__ 
                     varName, varValue, varLineNo =  varDict[ constants.ELT_KW ], varDict[ constants.GENERATORS_KW ], varDict[ constants.LINE_NO_KW ] 
                     for target in targets:
-                    	if( isinstance(target, ast.Name) ):
+                        if( isinstance(target, ast.Name) ):
                             lhs = target.id 
                     if isinstance(varName, ast.Subscript):
-                    	varName =  varName.value
-                    	if isinstance(varName, ast.Name):
-                    		varName = varName.id
+                        varName =  varName.value
+                        if isinstance(varName, ast.Name):
+                            varName = varName.id
                     if isinstance(varValue, list):
-                    	varValue =  varValue[0]
-                    	if isinstance(varValue, ast.comprehension):
-                    		varIter = varValue.iter
-                    		if isinstance(varIter, ast.Name):
-                    			varIter = varIter.id
-                    		varValue = varValue.target
-                    		if isinstance(varValue, ast.Name):
-                    			varValue = varValue.id
+                        varValue =  varValue[0]
+                        if isinstance(varValue, ast.comprehension):
+                            varIter = varValue.iter
+                            if isinstance(varIter, ast.Name):
+                                varIter = varIter.id
+                            varValue = varValue.target
+                            if isinstance(varValue, ast.Name):
+                                varValue = varValue.id
                     var_assignment_list.append( (lhs, varName, varValue, varIter, varLineNo) )
 
     return var_assignment_list     
@@ -411,19 +409,19 @@ def getImport(pyTree):
     import_list = []
     for stmt_ in pyTree.body:
         for node_ in ast.walk(stmt_):
-        	if isinstance(node_, ast.Import):
-        		for name in node_.names:
-        			import_list.append( (name.name.split('.')[0] ) )
-        	elif isinstance(node_, ast.ImportFrom):
-        		if(node_.module is not None):
-        			import_list.append( ( node_.module.split('.')[0] ) )
+            if isinstance(node_, ast.Import):
+                for name in node_.names:
+                    import_list.append( (name.name.split('.')[0] ) )
+            elif isinstance(node_, ast.ImportFrom):
+                if(node_.module is not None):
+                    import_list.append( ( node_.module.split('.')[0] ) )
 
     return import_list 
 
 def checkIfParsablePython( pyFile ):
-	flag = True 
-	try:
-		full_tree = ast.parse( open( pyFile ).read())    
-	except (SyntaxError, UnicodeDecodeError) as err_ :
-		flag = False 
-	return flag 	
+    flag = True 
+    try:
+        full_tree = ast.parse( open( pyFile ).read())    
+    except (SyntaxError, UnicodeDecodeError) as err_ :
+        flag = False 
+    return flag 	

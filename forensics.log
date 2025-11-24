@@ -1,0 +1,54 @@
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PROGRAM_START", "caller": "<module>"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "AUTO_RUN_PATH", "caller": "<module>", "path": null}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "RUN_START", "caller": "runFameML", "input_directory": null, "output_csv": null}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PROCESSING_SUBFOLDER", "caller": "runFameML", "subfolder": "./.github"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "SCAN_DIRECTORY", "caller": "getAllPythonFilesinRepo", "directory": "./.github"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "SCAN_COMPLETE", "caller": "getAllPythonFilesinRepo", "count": 0}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "ENTER_FUNCTION", "caller": "getCSVData", "dic_size": 0, "repo": "./.github"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "EXIT_FUNCTION", "caller": "getCSVData", "results": 0}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PROCESSING_SUBFOLDER", "caller": "runFameML", "subfolder": "./MLForensics-farzana"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "SCAN_DIRECTORY", "caller": "getAllPythonFilesinRepo", "directory": "./MLForensics-farzana"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PYTHON_FILE_FOUND", "caller": "getAllPythonFilesinRepo", "file": "./MLForensics-farzana/empirical/frequency.py"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PYTHON_FILE_FOUND", "caller": "getAllPythonFilesinRepo", "file": "./MLForensics-farzana/empirical/dataset.stats.py"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PYTHON_FILE_FOUND", "caller": "getAllPythonFilesinRepo", "file": "./MLForensics-farzana/empirical/report.py"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PYTHON_FILE_FOUND", "caller": "getAllPythonFilesinRepo", "file": "./MLForensics-farzana/mining/mining.py"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PYTHON_FILE_FOUND", "caller": "getAllPythonFilesinRepo", "file": "./MLForensics-farzana/mining/constants.py"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PYTHON_FILE_FOUND", "caller": "getAllPythonFilesinRepo", "file": "./MLForensics-farzana/mining/log.op.miner.py"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PYTHON_FILE_FOUND", "caller": "getAllPythonFilesinRepo", "file": "./MLForensics-farzana/mining/git.repo.miner.py"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PYTHON_FILE_FOUND", "caller": "getAllPythonFilesinRepo", "file": "./MLForensics-farzana/FAME-ML/constants.py"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PYTHON_FILE_FOUND", "caller": "getAllPythonFilesinRepo", "file": "./MLForensics-farzana/FAME-ML/py_parser.py"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PYTHON_FILE_FOUND", "caller": "getAllPythonFilesinRepo", "file": "./MLForensics-farzana/FAME-ML/lint_engine.py"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PYTHON_FILE_FOUND", "caller": "getAllPythonFilesinRepo", "file": "./MLForensics-farzana/FAME-ML/main.py"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "SCAN_COMPLETE", "caller": "getAllPythonFilesinRepo", "count": 11}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "ENTER_FUNCTION", "caller": "getCSVData", "dic_size": 11, "repo": "./MLForensics-farzana"}
+{"timestamp": "2025-11-23 22:16:24", "pid": 97373, "event_type": "PROCESSING_FILE", "caller": "getCSVData", "file": "./MLForensics-farzana/FAME-ML/constants.py"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "COUNTS_COLLECTED", "caller": "getCSVData", "file": "./MLForensics-farzana/FAME-ML/constants.py", "total_events": 0}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROCESSING_FILE", "caller": "getCSVData", "file": "./MLForensics-farzana/FAME-ML/lint_engine.py"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "ERROR_LINT_ENGINE", "caller": "getCSVData", "file": "./MLForensics-farzana/FAME-ML/lint_engine.py", "error": "module 'ast' has no attribute 'Str'"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROCESSING_FILE", "caller": "getCSVData", "file": "./MLForensics-farzana/FAME-ML/main.py"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "ERROR_LINT_ENGINE", "caller": "getCSVData", "file": "./MLForensics-farzana/FAME-ML/main.py", "error": "module 'ast' has no attribute 'Str'"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROCESSING_FILE", "caller": "getCSVData", "file": "./MLForensics-farzana/FAME-ML/py_parser.py"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "ERROR_LINT_ENGINE", "caller": "getCSVData", "file": "./MLForensics-farzana/FAME-ML/py_parser.py", "error": "module 'ast' has no attribute 'Str'"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROCESSING_FILE", "caller": "getCSVData", "file": "./MLForensics-farzana/empirical/dataset.stats.py"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "ERROR_LINT_ENGINE", "caller": "getCSVData", "file": "./MLForensics-farzana/empirical/dataset.stats.py", "error": "module 'ast' has no attribute 'Str'"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROCESSING_FILE", "caller": "getCSVData", "file": "./MLForensics-farzana/empirical/frequency.py"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "ERROR_LINT_ENGINE", "caller": "getCSVData", "file": "./MLForensics-farzana/empirical/frequency.py", "error": "module 'ast' has no attribute 'Str'"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROCESSING_FILE", "caller": "getCSVData", "file": "./MLForensics-farzana/empirical/report.py"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "ERROR_LINT_ENGINE", "caller": "getCSVData", "file": "./MLForensics-farzana/empirical/report.py", "error": "module 'ast' has no attribute 'Str'"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROCESSING_FILE", "caller": "getCSVData", "file": "./MLForensics-farzana/mining/constants.py"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "COUNTS_COLLECTED", "caller": "getCSVData", "file": "./MLForensics-farzana/mining/constants.py", "total_events": 0}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROCESSING_FILE", "caller": "getCSVData", "file": "./MLForensics-farzana/mining/git.repo.miner.py"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "ERROR_LINT_ENGINE", "caller": "getCSVData", "file": "./MLForensics-farzana/mining/git.repo.miner.py", "error": "module 'ast' has no attribute 'Str'"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROCESSING_FILE", "caller": "getCSVData", "file": "./MLForensics-farzana/mining/log.op.miner.py"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "ERROR_LINT_ENGINE", "caller": "getCSVData", "file": "./MLForensics-farzana/mining/log.op.miner.py", "error": "module 'ast' has no attribute 'Str'"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROCESSING_FILE", "caller": "getCSVData", "file": "./MLForensics-farzana/mining/mining.py"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "ERROR_LINT_ENGINE", "caller": "getCSVData", "file": "./MLForensics-farzana/mining/mining.py", "error": "module 'ast' has no attribute 'Str'"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "EXIT_FUNCTION", "caller": "getCSVData", "results": 2}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROCESSING_SUBFOLDER", "caller": "runFameML", "subfolder": "./.git"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "SCAN_DIRECTORY", "caller": "getAllPythonFilesinRepo", "directory": "./.git"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "SCAN_COMPLETE", "caller": "getAllPythonFilesinRepo", "count": 0}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "ENTER_FUNCTION", "caller": "getCSVData", "dic_size": 0, "repo": "./.git"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "EXIT_FUNCTION", "caller": "getCSVData", "results": 0}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "CSV_WRITTEN", "caller": "runFameML", "rows": 2, "file": null}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "RUN_COMPLETE", "caller": "runFameML"}
+{"timestamp": "2025-11-23 22:16:25", "pid": 97373, "event_type": "PROGRAM_END", "caller": "<module>", "duration_minutes": 0.00297}
